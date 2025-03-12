@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%=title %></title>
+  </head>
+<body>
+  <h1><%=title %></h1>
+  <br></br>
+  <h2>Categories</h2>
+  <%= categories.map(category => category.category).join(",") %>
+  <h2>Products</h2>
+  <%= products.map(product => product.product).join(",") %>
+</body>
+</html>
