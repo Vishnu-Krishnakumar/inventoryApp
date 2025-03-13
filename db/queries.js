@@ -4,17 +4,18 @@ const pool = require("./pool");
 
 
  async function getAllCategories(){
-  const {rows} = await pool.query("SELECT DISTINCT category FROM products");
+  const {rows} = await pool.query("SELECT * FROM category");
   return rows;
 }
 
  async function productGet(product){
-  const {rows} = await pool.query("SELECT * FROM products WHERE product = $1",[`${product}`]);
+  console.log("productget");
+  const {rows} = await pool.query("SELECT * FROM product WHERE id = $1",[`${product}`]);
   return rows;
 }
 
  async function categoryGet(category){
-  const {rows} = await pool.query("SELECT * FROM products where category = $1",[`${category}`]);
+  const {rows} = await pool.query("SELECT * FROM product where category_id= $1",[`${category}`]);
   console.log(rows);
   return rows;
 }

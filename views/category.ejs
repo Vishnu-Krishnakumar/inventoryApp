@@ -8,9 +8,9 @@
   <br></br>
   <h2>Products in category </h2>
   <% products.map(product =>{ %>
-    <form action ="/product" method ="get" style="display:inline;">
-      <input type="hidden" id="product" name="product" value="<%= product.product %>">
-      <button type ="submit" ><%= product.product %></button>
+    <form action ="/product" method ="get">
+      <input type="hidden" id="product" name="product" value="<%= product.id %>">
+      <button type ="submit" ><%= product.product_name %></button>
     </form>
    <% }) %>
 </body>
