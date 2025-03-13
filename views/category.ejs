@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%=title %></title>
+  </head>
+<body>
+  <h1><%=title %></h1>
+  <br></br>
+  <h2>Products in category </h2>
+  <% products.map(product =>{ %>
+    <form action ="/product" method ="get" style="display:inline;">
+      <input type="hidden" id="product" name="product" value="<%= product.product %>">
+      <button type ="submit" ><%= product.product %></button>
+    </form>
+   <% }) %>
+</body>
+</html>

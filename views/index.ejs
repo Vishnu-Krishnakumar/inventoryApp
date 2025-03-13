@@ -7,7 +7,12 @@
   <h1><%=title %></h1>
   <br></br>
   <h2>Categories</h2>
-  <%= categories.map(category => category.category).join(",") %>
+  <% categories.map(category =>{ %>
+   <form action ="/category" method ="get" >
+     <input type="hidden" id="category" name="category" value="<%= category.category %>">
+     <button type ="submit" ><%= category.category %></button>
+   </form>
+  <% }) %>
   <h2>Products</h2>
   <%= products.map(product => product.product).join(",") %>
 </body>

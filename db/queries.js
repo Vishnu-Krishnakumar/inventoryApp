@@ -8,14 +8,15 @@ const pool = require("./pool");
   return rows;
 }
 
- async function productGet(){
-  const {rows} = await pool.query("SELECT product FROM products");
+ async function productGet(product){
+  const {rows} = await pool.query("SELECT * FROM products WHERE product = $1",[`${product}`]);
   return rows;
 }
 
  async function categoryGet(category){
   const {rows} = await pool.query("SELECT * FROM products where category = $1",[`${category}`]);
-  return rows.rows;
+  console.log(rows);
+  return rows;
 }
 
 module.exports ={

@@ -16,23 +16,27 @@ async function homePage (req, res) {
 }
 
 async function productGet (req,res) {
-  const products = await db.productGet();
-    res.render("products",{
-    title:"Have a look at all my products!",
-    products:products
+  const query = req.query.product;
+  const product = await db.productGet(query);
+  console.log(product);
+    res.render("product",{
+    title:"Have a look at this product!",
+    product:product
   });
 }
 
-async function categoryPost (req,res) {
-  const categories = await db.getCategories(req.query.category);
-    res.render("products",{
-    title:"Have a look at all my products!",
-    categories:categories,
+async function categoryGet (req,res) {
+  console.log(req.query.category);
+  let category  = req.query.category;
+  const products = await db.categoryGet(req.query.category);
+  res.render("category",{
+    title:`Have a look at my ${category}s`,
+    products:products,
   });
 }
 
 module.exports = {
     homePage,
     productGet,
-    categoryPost,
+    categoryGet,
 }
