@@ -1,0 +1,40 @@
+ body{
+  display: flex;
+  flex-direction: column;
+  align-items:center ;
+  justify-items: center;
+  background-color: bisque;
+} 
+
+#item{
+    width: 150px;
+    height:100px;
+    margin: 5px;
+    border: none;
+    background-color: cornflowerblue;
+}
+button{
+    border:none;
+    width: 54px;
+    height: 22px;
+    margin: 5px;
+}
+button:hover{
+    background-color: burlywood;
+}
+#item:hover{
+    background-color: burlywood;
+}
+.categories{
+    display:grid;
+    grid-template-columns: auto auto auto;
+    align-items:center ;
+    justify-items: center;
+    
+}
+
+.products{
+    display:grid;
+    grid-template-columns:auto auto auto;
+
+}

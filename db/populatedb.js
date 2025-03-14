@@ -20,8 +20,9 @@ VALUES('Candy'),('Vegetables'),('Alcohol'),('Meat'),('Bread') ON CONFLICT (categ
 INSERT INTO product (product_name,stock,price,unit,category_id) 
 VALUES
   ('KitKat',25,.50,'ounce',1),
-  ('WonderBread',30,4.99,'ounce',5),
-  ('Chicken_Breast',40,1.99,'pound',4);
+  ('Hershey',25,.50,'ounce',1),
+  ('Wonder Bread',30,4.99,'ounce',8),
+  ('Chicken Breast',40,1.99,'pound',4);
 `;
 
 async function main() {
