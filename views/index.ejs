@@ -13,7 +13,36 @@
      <button type ="submit" ><%= category.category_name %></button>
    </form>
   <% }) %>
+  <H2>Create a category!</H2>
+  <form action ="/category" method ="post" >
+    <label for = "category" >Category Name</label>
+    <input type="text" id="category" name="category">
+    <button type ="submit">Add</button>
+  </form>
   <h2>Products</h2>
-
+  <% products.map(product =>{ %>
+    <form action ="/product" method ="get">
+      <input type="hidden" id="product" name="product" value="<%= product.id %>">
+      <button type ="submit" ><%= product.product_name %></button>
+    </form>
+  <% }) %>
+  <h2>Add a product!</h2>
+  <form action = "/product" method = "post" > 
+    <label for = "product_name">Product Name</label>
+    <input type ="text" id = "product_name" name = "product_name">
+    <label for = "category">Category</label>
+    <select name = "category" id = "categoryAdd">
+    <% categories.map(category => { %>
+      <option value = "<%= category.id %>"><%= category.category_name %></option>
+    <% }) %>
+    </select>
+    <label for = "product_price">price</label>
+    <input type ="text" id = "product_price" name = "product_price">
+    <label for = "product_unit">Unit</label>
+    <input type ="text" id = "product_unit" name = "product_unit">
+    <label for = "product_stock">Stock</label>
+    <input type ="text" id = "product_stock" name = "product_stock">
+    <button type = "submit"> Submit! </button>
+  </form>
 </body>
 </html>

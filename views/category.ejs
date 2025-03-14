@@ -13,5 +13,10 @@
       <button type ="submit" ><%= product.product_name %></button>
     </form>
    <% }) %>
+   <h2>Delete this category</h2>
+     <form action ="/categoryRemove" method ="post">
+       <input type ="hidden" id = "category" name = "category" value = "<%= id %>">
+       <button type = "submit">Delete</button>
+     </form>
 </body>
 </html>
