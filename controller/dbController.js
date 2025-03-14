@@ -17,19 +17,26 @@ async function homePage (req, res) {
 async function productGet (req,res) {
   const query = req.query.product;
   const product = await db.productGet(query);
-  console.log(product);
-    res.render("product",{
+  const category = await db.categoryNameGet(product[0].category_id);
+  res.render("product",{
     title:"Have a look at this product!",
-    product:product
+    product:product,
+    category:category,
   });
 }
+
 async function productPost (req,res){
-  console.log(req.body);
   db.productPost(req.body);
   res.redirect("/");
+
 }
+
+async function productRemovePost(req,res){
+  await db.productRemove(req.body.product_id);
+  res.redirect("/")
+}
+
 async function categoryGet (req,res) {
-  console.log(req.query.category);
   let category_id  = req.query.category;
   let category_name = await db.categoryNameGet(category_id)
   const products = await db.categoryGet(category_id);
@@ -42,15 +49,16 @@ async function categoryGet (req,res) {
 
 async function categoryPost (req,res){
   let category = req.body.category;
-  console.log(category);
   db.categoryPost(category);
   res.redirect("/"); 
 }
+
 async function categoryDeletePost(req,res){
   const id = req.body.category;
   db.categoryDeletePost(id);
   res.redirect("/");
 }
+
 module.exports = {
     homePage,
     productGet,
@@ -58,4 +66,5 @@ module.exports = {
     categoryPost,
     categoryDeletePost,
     productPost,
+    productRemovePost,
 }

@@ -9,17 +9,18 @@ async function getAllCategories(){
 }
 async function getAllProducts(){
   const {rows} = await pool.query("SELECT * FROM product");
-  console.log(rows);
+
   return rows;
 }
 async function productGet(product){
-  console.log("productget");
+  
   const {rows} = await pool.query("SELECT * FROM product WHERE id = $1",[`${product}`]);
   return rows;
 }
+
 async function categoryGet(category){
   const {rows} = await pool.query("SELECT * FROM product where category_id= $1",[`${category}`]);
-  console.log(rows);
+  
   return rows;
 }
 async function categoryNameGet(category_id){
@@ -34,10 +35,13 @@ async function categoryDeletePost(category_id){
 }
 
 async function productPost(product){
-  console.log(product.product_name);
   await pool.query("INSERT INTO product(product_name,stock,price,unit,category_id) values($1,$2,$3,$4,$5)",[`${product.product_name}`,`${product.product_stock}`,`${product.product_price}`,`${product.product_unit}`,`${product.category}`]);
 }
 
+async function productRemove(id){
+  await pool.query("DELETE FROM product where id = $1",[`${id}`]);
+  
+}
 module.exports ={
   categoryGet,
   productGet,
@@ -47,4 +51,5 @@ module.exports ={
   categoryDeletePost,
   getAllProducts,
   productPost,
+  productRemove
 }

@@ -11,8 +11,14 @@
   <br>
   name: <%= product.map(product => product.product_name) %>
   <br>
-  category: <%= product.map(product => product.category) %>
+  category: <%= product.map(product => category) %>
   <br>
   stock:  <%= product.map(product => product.stock) %>
+
+  <h2>Delete this product</h2>
+     <form action ="/productRemove" method ="post">
+       <input type ="hidden" id = "product_id" name = "product_id" value = "<%= product[0].id %>">
+       <button type = "submit">Delete</button>
+     </form>
 </body>
 </html>

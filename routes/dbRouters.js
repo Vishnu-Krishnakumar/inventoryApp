@@ -8,6 +8,7 @@ dbRouters.get("/category",dbController.categoryGet);
 dbRouters.post("/category",dbController.categoryPost)
 dbRouters.post("/categoryRemove",dbController.categoryDeletePost);
 dbRouters.post("/product",dbController.productPost);
+dbRouters.post("/productRemove",dbController.productRemovePost);
 // dbRouters.get("/cart",dbController.cartGet);
 
 module.exports = dbRouters;
