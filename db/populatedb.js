@@ -21,7 +21,7 @@ INSERT INTO product (product_name,stock,price,unit,category_id)
 VALUES
   ('KitKat',25,.50,'ounce',1),
   ('Hershey',25,.50,'ounce',1),
-  ('Wonder Bread',30,4.99,'ounce',8),
+  ('Wonder Bread',30,4.99,'ounce',5),
   ('Chicken Breast',40,1.99,'pound',4);
 `;
 
