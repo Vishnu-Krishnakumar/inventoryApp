@@ -1,9 +1,9 @@
 require("dotenv").config();
 const { Pool } = require("pg");
 module.exports = new Pool({
-    host: "postgres.railway.internal", // or wherever the db is hosted
-    user: "postgres",
-    database: "railway",
-    password: "lbfrtQxihZexXZkcyPrpYEdlDUjwdCyQ",
+    host: process.env.host, // or wherever the db is hosted
+    user: process.env.user,
+    database: process.env.database,
+    password: process.env.password,
     port: 5432 // The default port
   });
