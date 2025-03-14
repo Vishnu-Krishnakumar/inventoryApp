@@ -30,9 +30,9 @@ async function main() {
   const client = new Client({
     user: process.env.role_name,
     password: process.env.role_password,
-    host: 'localhost',
+    host: 'cva3kb8fnakc73fuf2mg',
     port: 5432,
-    database: 'grocery'
+    database: 'grocery_i0q4'
   });
   await client.connect();
   await client.query(SQL);
