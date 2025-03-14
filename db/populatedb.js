@@ -28,11 +28,11 @@ VALUES
 async function main() {
   console.log("seeding...");
   const client = new Client({
-    user: process.env.role_name,
-    password: process.env.role_password,
-    host: 'cva3kb8fnakc73fuf2mg',
+    user: process.env.user,
+    password: process.env.password,
+    host: process.env.host,
     port: 5432,
-    database: 'grocery_i0q4'
+    database: process.env.database,
   });
   await client.connect();
   await client.query(SQL);
